@@ -1,0 +1,223 @@
+/*	----------------------------------------------------------------
+	MaxCycle (Fullscreen Slideshow for use with jQuery Cycle Plugin)
+	----------------------------------------------------------------
+	Demo at: http://www.aaronvanderzwan.com/maxcycle/
+	Download and Info at: http://github.com/akv2/MaxCycle---jQuery-Plugin/
+	Copyright (c) 2007-2011 Aaron Vanderzwan
+	Dual licensed under the MIT and GPL licenses.
+*/
+/*! Version: 2.0.73 (12-Oct-2012) */
+.mc-hide-scrolls {
+	overflow: hidden;
+}
+#inicio .mc-cycle {
+	height: 100%;
+	left: 0;
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: -1;
+}
+div.mc-image {
+	/*NOTE: Mozilla flickers when fading and using 'all', so we have to be specific with what property we want to transition:
+	If you are using fading transitions, use 'opacity: */
+	-webkit-transition: opacity 1s ease-in-out;
+	-moz-transition: opacity 1s ease-in-out;
+	-o-transition: opacity 1s ease-in-out;
+	transition: opacity 1s ease-in-out;
+	/*If you are using horizontal slide transitions, use the following CSS:
+	-webkit-transition: left 1s ease-in-out; 
+	-moz-transition: left 1s ease-in-out; 
+	-o-transition: left 1s ease-in-out; 
+	transition: left 1s ease-in-out;*/
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 100%;
+	overflow: hidden;
+	width: 100%;
+}
+.mc-old-browser .mc-image {
+	overflow: hidden;
+}
+/* I wanted to center my loader */
+#cycle-loader {
+	width: 100px;
+    height: 100px;
+    left: 50%;
+    margin: -40px 0 0 -45px;
+    position: absolute;
+    top: 50%;
+    z-index: 999;
+}
+/*I want to avoid jumpiness as the JS loads, so I initially hide my cycle*/
+#maximage {
+	display: none;
+	position: fixed !important;
+}
+/*I want to style my pager*/
+#cycle-nav {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+#cycle-nav ul {
+	list-style-type: none;
+}
+#cycle-nav ul li {
+	border: 1px solid #ffffcc;
+	float: left;
+	margin: 4px;
+}
+#cycle-nav ul li a {
+	background: #ffffcc;
+	float: left;
+	height: 10px;
+	margin: 2px;
+	width: 10px;
+}
+#cycle-nav ul li.activeSlide {
+	border: 1px solid #ff6600;
+}
+/*Set my gradient above all images*/
+#gradient {
+	left: 0;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 999;
+}
+/*Set my logo in bottom left*/
+#logo {
+	bottom: 30px;
+	height: auto;
+	left: 30px;
+	position: absolute;
+	width: 34%;
+	z-index: 1000;
+}
+#logo img {
+	width: 100%;
+}
+.buttons {
+	display: inline-block;
+}
+#arrow_left, #arrow_right {
+	bottom: 45px;
+	height: 30px;
+	position: absolute;
+	left: 70px;
+	width: 36px;
+	padding: 20px 45px;
+	z-index: 1000;
+}
+#arrow_left {
+	left: -25px;
+}
+#arrow_left:hover, #arrow_right:hover {
+	bottom: 44px;
+}
+#arrow_left:active, #arrow_right:active {
+	bottom: 43px;
+}
+.in-slide-content a {
+	color: #00F;
+	text-shadow: none;
+	text-decoration: none;
+	transition: 0.4s;
+}
+.in-slide-content a:hover {
+	color: #F00;
+	transition: 0.4s;
+}
+.in-slide-content p {
+	text-shadow: 0px 0 6px #000000, 0px 0 20px #000000;
+}
+.in-slide-content {
+	color: #333;
+	float: right;
+	font-family: 'Century Gothic', sans-serif;
+	font-size: 50%;
+	font-weight: bold;
+	right: 0;
+	margin: 12% 40px 40px;
+	padding: 20px;
+	position: absolute;
+	top: 0;
+	max-width: 700px;
+	z-index: 9999;
+}
+.light-text {
+	color: #f0f0f0;
+	text-shadow: 0 1px 0 #666;
+}
+.smaller-text {
+	font-size: 40px;
+}
+.youtube-video, video {
+	left: 0;
+	position: absolute;
+	top: 0;
+}
+@media(max-width:720px) {
+.in-slide-content {
+	display: none;
+}
+}
+/*//////////////////////////////////*/
+.btns_vimeo {
+	margin-top: 3px;
+	padding: 0 10px;
+	position: absolute;
+	z-index: 999;
+	bottom: 0;
+	right: 0;
+}
+button {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	cursor: pointer;
+	font-weight: 700;
+	font-size: 13px;
+	padding: 8px 18px 10px;
+	line-height: 1;
+	color: #fff;
+	background: #345;
+	border: 0;
+	border-radius: 4px;
+	margin-left: 0.75em;
+}
+.btns_vimeo p {
+	color: #FFF;
+	display: inline-block;
+	margin-left: 10px;
+}
+/**/
+.banner1 img{
+	position: absolute; z-index:1000; top:21%; right:4%; width:90%; max-width:360px; padding:0 0 0 5%;
+}
+.banner2 img{
+	position: absolute; z-index:1000; top:30%; right:5%; width:90%; max-width:550px; padding:0 0 0 5%;
+}
+.banner3 img{
+	position: absolute; z-index:1000; top:25%; right:5%; width:100%; max-width:460px; padding:0 0 0 5%;
+}
+.banner4 img{
+	position: absolute; z-index:1000; top:20%; left:0; width:90%; max-width:455px; padding:0 5% 0 0;
+}
+.benner5 img{
+	position: absolute; z-index:1000; top:30%; left:10%; width:90%; max-width:550px; padding:0 5% 0 0;
+}
+.banner6a img{
+	position: absolute; z-index:1000; top:65%; right:8%; width:80%; max-width:480px; padding:0 0 0 5%;
+}
+.banner6b img{
+	position: absolute; z-index:1000; top:18%; left:15%; width:65%; max-width:350px; padding:0 10% 0 0;
+}
+.banner7 img{
+	position: absolute; z-index:1000; top:30%; left:10%; width:90%; max-width:480px; padding:0 5% 0 0;
+}
